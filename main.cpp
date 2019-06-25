@@ -24,10 +24,13 @@ void display(){
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity(); // limpa transformações feitas anteriormente
 	
-	glTranslated(0.5, 0.0, 0.0);
-	glRotated(angulo, 0, 1, 0); //rotaciona no eixo y
-	glColor3f(0.2f, 0.3f, 0.3f);
+	glTranslated(0.5, 0.0, 0.0); // translada em direção do eixo x
+	glRotated(angulo, 0, 1, 0); // rotaciona no eixo y
+	glColor3f(0.2f, 0.3f, 0.3f); 
 	glutWireCube(0.2);
+
+	glColor3f(0.6f, 0.0f, 0.0f);
+	glutWireSphere(0.1, 0.3, 0.3);
 
 	glFlush();
 	glutSwapBuffers();
