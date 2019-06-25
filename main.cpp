@@ -23,6 +23,8 @@ void display(){
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity(); // limpa transformações feitas anteriormente
 	
+	glColor3f(0.2f, 0.3f, 0.3f);
+	glutWireCube(0.2);
 
 	glFlush();
 	glutSwapBuffers();
