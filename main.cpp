@@ -15,6 +15,7 @@ const unsigned int UPDATE_INTERVAL_MS = 1000 / FRAMES_POR_SEGUNDO;
 GLint gTimeLastUpdateMs = 0; //variavel para controle do tempo junto com as constantes acima
 GLfloat rX = 0; //variavel para rotação eixo x
 GLfloat rY = 0; //variavel para rotação eixo y
+double angulo = 5.0; //variavel no controle do angulo da rotação
 
 // função display - desenha na tela
 void display(){
@@ -23,6 +24,8 @@ void display(){
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity(); // limpa transformações feitas anteriormente
 	
+	glTranslated(0.5, 0.0, 0.0);
+	glRotated(angulo, 0, 1, 0); //rotaciona no eixo y
 	glColor3f(0.2f, 0.3f, 0.3f);
 	glutWireCube(0.2);
 
@@ -32,7 +35,7 @@ void display(){
 
 // função update - atualiza os desenhos da tela para mandar no display
 void update(int valor) {
-
+	angulo += 0.8;
 }
 
 // função teclado
@@ -55,6 +58,7 @@ void internalUpdate(int value) {
 	int timeNowMs = glutGet(GLUT_ELAPSED_TIME);
 	double deltaSeconds = (timeNowMs - gTimeLastUpdateMs) / 1000.0;
 	gTimeLastUpdateMs = timeNowMs;
+	update(deltaSeconds);
 	glutPostRedisplay();
 	glutTimerFunc(UPDATE_INTERVAL_MS, internalUpdate, 0);
 }
