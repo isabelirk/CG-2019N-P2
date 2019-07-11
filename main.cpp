@@ -31,7 +31,8 @@ void display(){
 	glMaterialfv(GL_FRONT_AND_BACK, GL_EMISSION, parametro1);
 	glutSolidCube(0.2);
 
-	glTranslated(-1.0, 0.0, 0.0);
+	glLoadIdentity();
+	glTranslated(-0.5, 0.0, 0.0);
 	glColor3f(0.6f, 0.0f, 0.0f);
 	glMaterialfv(GL_FRONT_AND_BACK, GL_EMISSION, parametro1);
 	glutSolidSphere(0.1, 50, 50);
