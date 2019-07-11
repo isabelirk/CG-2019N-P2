@@ -16,6 +16,8 @@ GLint gTimeLastUpdateMs = 0; //variavel para controle do tempo junto com as cons
 GLfloat rX = 0; //variavel para rotação eixo x
 GLfloat rY = 0; //variavel para rotação eixo y
 double angulo = 5.0; //variavel no controle do angulo da rotação
+GLfloat parametro1[4] = { 0.2, 0.0, 0.0, 0.0 };
+float parametro2[4] = { 0.0, 0.0, 0.0, 1.0 };
 
 // função display - desenha na tela
 void display(){
@@ -27,10 +29,15 @@ void display(){
 	glTranslated(0.5, 0.0, 0.0); // translada em direção do eixo x
 	glRotated(angulo, 0, 1, 0); // rotaciona no eixo y
 	glColor3f(0.2f, 0.3f, 0.3f); 
+	glMaterialfv(GL_FRONT_AND_BACK, GL_EMISSION, parametro1);
 	glutWireCube(0.2);
 
+	glTranslated(-1.0, 0.0, 0.0);
 	glColor3f(0.6f, 0.0f, 0.0f);
-	glutWireSphere(0.1, 0.3, 0.3);
+	glMaterialfv(GL_FRONT_AND_BACK, GL_EMISSION, parametro1);
+	glutSolidSphere(0.1, 50, 50);
+	//glMaterialfv(GL_FRONT_AND_BACK, GL_EMISSION, parametro2);
+	//glutWireSphere(0.1, 0.3, 0.3);
 
 	glFlush();
 	glutSwapBuffers();
